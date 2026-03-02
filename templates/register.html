@@ -1,0 +1,36 @@
+<style>
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    h5 {
+        color: red;
+    }
+</style>
+
+<h1>Register</h1>
+<form action="register" method="POST">
+    {% csrf_token %}
+    <p>Name: </p>
+    <input type="text" name="name" />
+    <p>Email: </p>
+    <input type="email" name="email" />
+    <p>Password: </p>
+    <input type="password" name="password" />
+    <p>Repeat Password: </p>
+    <input type="password" name="password2" />
+    <br>
+    <input type="radio" name="role" value="Student">
+    <label for="student">Student</label>
+    <input type="radio" name="role" value="Staff">
+    <label for="staff">Staff</label>
+    <br>
+    <input type="submit" />
+</form>
+
+{% for message in messages %}
+<h5>{{message}}</h5>
+{% endfor %}

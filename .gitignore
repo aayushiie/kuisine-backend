@@ -1,0 +1,65 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.pyd
+*.pyo
+*.pyc
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+pip-wheel-metadata/
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+static/
+
+# Django migrations 
+*/migrations/*
+!*/migrations/__init__.py
+
+.env
+.env.*
+*.env
+*.secrets
+*.secret
+
+# PostgreSQL
+*.sql
+*.dump
+*.psql
+*.bak
+
+# IDE / Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing / Coverage
+.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+.cache/

@@ -1,0 +1,28 @@
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    h3{
+        color: red;
+    }
+</style>
+
+<h1>Staff Login</h1>
+<form action="stafflogin" method="POST">
+    {% csrf_token %}
+    <p>Email: </p>
+    <input type="text" name="email"/>
+    <p>Password: </p>
+    <input type="password" name="password"/>
+    <br>
+    <input type="submit"/>
+</form>
+
+{% for message in messages %}
+<h3>
+    {{message}}
+</h3>
+{% endfor %}
