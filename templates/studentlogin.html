@@ -1,28 +1,57 @@
-<style>
-    body{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-    h3{
-        color: red;
-    }
-</style>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Login</title>
+
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h3{
+            color: red;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            row-gap: 6px;
+        }
+
+        input{
+            padding: 6px;
+        }
+    </style>
+
+</head>
+
+<body>
 
 <h1>Student Login</h1>
-<form action="studentlogin" method="POST">
+
+<form action="{% url 'studentlogin' %}" method="POST">
     {% csrf_token %}
-    <p>Email: </p>
-    <input type="text" name="email"/>
-    <p>Password: </p>
-    <input type="password" name="password"/>
+
+    <p>Email:</p>
+    <input type="text" name="email" required>
+
+    <p>Password:</p>
+    <input type="password" name="password" required>
+
     <br>
-    <input type="submit"/>
+
+    <input type="submit" value="Login">
+
 </form>
 
 {% for message in messages %}
-<h3>
-    {{message}}
-</h3>
+<h3>{{ message }}</h3>
 {% endfor %}
+
+</body>
+</html>

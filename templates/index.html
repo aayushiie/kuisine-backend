@@ -1,31 +1,66 @@
-<style>
-    body {
-        background-color: antiquewhite;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kuisine</title>
 
-    div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        row-gap: 6px;
+    <style>
+        body {
+            background-color: antiquewhite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            row-gap: 10px;
+        }
 
-    a {
-        color: black;
-        text-decoration: none;
-    }
-</style>
+        .button-row {
+            display: flex;
+            flex-direction: row;
+            column-gap: 8px;
+        }
 
-<div>
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
     <h1>Welcome to Kuisine</h1>
-    <div style="display: flex; flex-direction: row; align-items: center; justify-content: center; column-gap: 4px;">
-        <button><a href="studentlogin">Login (Student)</button>
-        <button><a href="stafflogin">Login (Staff)</button>
+
+    <div class="button-row">
+        <button>
+            <a href="{% url 'studentlogin' %}">Login (Student)</a>
+        </button>
+
+        <button>
+            <a href="{% url 'stafflogin' %}">Login (Staff)</a>
+        </button>
     </div>
-    <button><a href="register">Register</button>
+
+    <button>
+        <a href="{% url 'register' %}">Register</a>
+    </button>
+
 </div>
+
+</body>
+</html>
