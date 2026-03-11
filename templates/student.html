@@ -1,2 +1,31 @@
 <h1>Welcome, {{name}}</h1>
+
+<h3>Select food court</h3>
+<form action="" method="GET">
+    {% for foodcourt in foodcourts %}
+    <input type="radio" name="foodcourt_id" value="{{ foodcourt.id }}"> <label>{{foodcourt.name}}</label>
+    <br>
+    {% endfor %}
+
+    <button type="submit">Submit</button>
+</form>
+
+{% if items %}
+<h3>Menu</h3>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {% for item in items %}
+    <input type="checkbox" name="item_name" value="{{ item.name }}"> <label>{{ item.name }} - ₹{{ item.price }}</label>
+    <br>
+    {% endfor %}
+
+    <button type="submit">Place Order</button>
+
+</form>
+{% endif %}
+
+
+
+
 <button><a href="{% url 'logout' %}">Logout</button>

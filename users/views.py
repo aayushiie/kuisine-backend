@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import User, Student, Staff
+from foodcourts.models import FoodCourts, FoodItems
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password, check_password
 
@@ -89,7 +90,14 @@ def logout(request):
 
 def student(request, pk):
     student = Student.objects.get(pk=pk)
-    return render(request, 'student.html', {'name': student.name})
+    foodcourts = FoodCourts.objects.filter(is_active=True)
+    items = None
+
+    if "foodcourt_id" in request.GET:
+        fc_id = request.GET["foodcourt_id"]
+        items = FoodItems.objects.filter(food_court_id=fc_id)
+
+    return render(request, 'student.html', {'name': student.name, 'foodcourts': foodcourts, 'items': items})
 
 def staff(request, pk):
     staff = Staff.objects.get(pk=pk)
