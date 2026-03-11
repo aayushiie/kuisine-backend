@@ -13,15 +13,16 @@
 {% if items %}
 <h3>Menu</h3>
 
-<form action="" method="POST">
+<form action="cart" method="POST">
     {% csrf_token %}
+
     {% for item in items %}
-    <input type="checkbox" name="item_name" value="{{ item.name }}"> <label>{{ item.name }} - ₹{{ item.price }}</label>
-    <br>
+        <input type="checkbox" name="items" value="{{ item.id }}">
+        <label>{{ item.name }} - ₹{{ item.price }}</label>
+        <br>
     {% endfor %}
 
     <button type="submit">Place Order</button>
-
 </form>
 {% endif %}
 
