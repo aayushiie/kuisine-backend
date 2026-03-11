@@ -1,1 +1,36 @@
-<h1>Your Cart</h1>
+<h2>Your Orders</h2>
+
+{% for order in orders %}
+
+    <h3>Order #{{ order.id }}</h3>
+
+    <table border="1">
+        <tr>
+            <th>Item</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+        </tr>
+
+        {% for item in order.orderitems_set.all %}
+        <tr>
+            <td>{{ item.food_item.name }}</td>
+            <td>₹{{ item.food_item.price }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>₹{{ item.food_item.price|floatformat:2|add:"0" }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <p><strong>Order Total: ₹{{ order.total_amt }}</strong></p>
+    <p>Status: {{ order.status }}</p>
+    <p>Time: {{ order.created_at }}</p>
+
+    <hr>
+
+{% empty %}
+    <p>No orders yet.</p>
+{% endfor %}
+
+<a href="{% url 'student' pk %}">Back</a>

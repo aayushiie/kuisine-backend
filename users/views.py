@@ -97,7 +97,7 @@ def student(request, pk):
         fc_id = request.GET["foodcourt_id"]
         items = FoodItems.objects.filter(food_court_id=fc_id)
 
-    return render(request, 'student.html', {'name': student.name, 'foodcourts': foodcourts, 'items': items})
+    return render(request, 'student.html', {'name': student.name, 'foodcourts': foodcourts, 'items': items, 'pk':pk})
 
 def staff(request, pk):
     staff = Staff.objects.get(pk=pk)
