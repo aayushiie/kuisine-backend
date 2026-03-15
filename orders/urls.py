@@ -3,11 +3,10 @@ from . import views
 
 urlpatterns = [
 
-    path('foodcourts/', views.get_foodcourts),
-    path('menu/', views.get_menu),
-    path('create/', views.create_order),
-    path("menu-page/", views.menu_view),
-]
-    
+    path("foodcourts/", views.get_foodcourts),
 
-    
+    path("menu/", views.get_menu),
+
+    path("create/", views.create_order),
+
+]

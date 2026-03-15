@@ -1,5 +1,4 @@
 from django.http import JsonResponse
-from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from .models import FoodCourt, MenuItem, Order
 import json
@@ -17,20 +16,25 @@ def get_menu(request):
 
 @csrf_exempt
 def create_order(request):
+
     if request.method == "POST":
+
         data = json.loads(request.body)
 
-        Order.objects.create(
-            item_id=data["item_id"],
-            quantity=data["quantity"]
-        )
+        item_id = data.get("item_id")
+        quantity = data.get("quantity")
 
-        return JsonResponse({"message": "Order placed"})
+        try:
+            item = MenuItem.objects.get(item_id=item_id)
+
+            Order.objects.create(
+                item=item,
+                quantity=quantity
+            )
+
+            return JsonResponse({"message": "Order placed successfully"})
+
+        except MenuItem.DoesNotExist:
+            return JsonResponse({"error": "Item not found"})
 
     return JsonResponse({"error": "POST request required"})
-
-
-# HTML menu page
-def menu_view(request):
-    items = MenuItem.objects.all()
-    return render(request, "menu.html", {"items": items})
