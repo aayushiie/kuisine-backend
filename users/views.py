@@ -9,63 +9,68 @@ def index(request):
 
 
 def register(request):
+
     if request.method == 'POST':
-        name = request.POST['name']
-        email = request.POST['email']
-        password = request.POST['password']
-        password2 = request.POST['password2']
-        role = request.POST['role']
 
-        if password == password2:
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        password2 = request.POST.get('password2')
+        role = request.POST.get('role')
 
-            if User.objects.filter(email=email).exists():
-                messages.info(request, 'Email already used. Please login')
-                return redirect('register')
-
-            elif email.lower().endswith('@kiit.ac.in'):
-
-                user = User.objects.create(
-                    email=email,
-                    password_hash=make_password(password),
-                    role=role
-                )
-
-                id = email.split('@')[0]
-
-                if role == 'Student':
-                    Student.objects.create(
-                        roll_number=id,
-                        email=user,
-                        name=name
-                    )
-                    return redirect('studentlogin')
-
-                elif role == 'Staff':
-                    Staff.objects.create(
-                        staff_id=id,
-                        email=user,
-                        name=name
-                    )
-                    return redirect('stafflogin')
-
-                return redirect('index')
-
-            else:
-                messages.info(request, 'Invalid email.')
-                return redirect('register')
-
-        else:
-            messages.info(request, 'Password does not match')
+        # Check password match
+        if password != password2:
+            messages.info(request, 'Passwords do not match')
             return redirect('register')
 
-    else:
-        return render(request, 'register.html')
+        # Check if email already exists
+        if User.objects.filter(email=email).exists():
+            messages.info(request, 'Email already used. Please login')
+            return redirect('register')
+
+        # Allow only KIIT email
+        if not email.lower().endswith('@kiit.ac.in'):
+            messages.info(request, 'Invalid email. Use KIIT email')
+            return redirect('register')
+
+        # Create user
+        user = User.objects.create(
+            email=email,
+            password_hash=make_password(password),
+            role=role
+        )
+
+        user_id = email.split('@')[0]
+
+        if role == 'Student':
+            Student.objects.create(
+                roll_number=user_id,
+                email=user,
+                name=name
+            )
+            messages.success(request, 'Registration successful. Please login.')
+            return redirect('studentlogin')
+
+        elif role == 'Staff':
+            Staff.objects.create(
+                staff_id=user_id,
+                email=user,
+                name=name
+            )
+            messages.success(request, 'Registration successful. Please login.')
+            return redirect('stafflogin')
+
+        return redirect('index')
+
+    return render(request, 'register.html')
 
 
 def studentlogin(request):
+
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
+
+        email = request.POST.get('email')
+        password = request.POST.get('password')
 
         if not User.objects.filter(email=email).exists():
             messages.info(request, 'User not registered')
@@ -74,22 +79,26 @@ def studentlogin(request):
         user = User.objects.get(email=email)
 
         if check_password(password, user.password_hash):
+
             request.session['user_email'] = user.email
+
             student = Student.objects.get(email=user)
+
             return redirect('student', pk=student.roll_number)
 
         else:
             messages.info(request, 'Invalid credentials')
             return redirect('studentlogin')
 
-    else:
-        return render(request, 'studentlogin.html')
+    return render(request, 'studentlogin.html')
 
 
 def stafflogin(request):
+
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
+
+        email = request.POST.get('email')
+        password = request.POST.get('password')
 
         if not User.objects.filter(email=email).exists():
             messages.info(request, 'User not registered')
@@ -98,16 +107,18 @@ def stafflogin(request):
         user = User.objects.get(email=email)
 
         if check_password(password, user.password_hash):
+
             request.session['user_email'] = user.email
+
             staff = Staff.objects.get(email=user)
+
             return redirect('staff', pk=staff.staff_id)
 
         else:
             messages.info(request, 'Invalid credentials')
             return redirect('stafflogin')
 
-    else:
-        return render(request, 'stafflogin.html')
+    return render(request, 'stafflogin.html')
 
 
 def logout(request):
@@ -116,10 +127,14 @@ def logout(request):
 
 
 def student(request, pk):
+
     student = Student.objects.get(pk=pk)
+
     return render(request, 'student.html', {'name': student.name})
 
 
 def staff(request, pk):
+
     staff = Staff.objects.get(pk=pk)
+
     return render(request, 'staff.html', {'name': staff.name})
