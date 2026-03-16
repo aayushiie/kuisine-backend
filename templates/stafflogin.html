@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Staff Login</title>
+
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h3{
+            color: red;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            row-gap: 6px;
+        }
+
+        input{
+            padding: 6px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h1>Staff Login</h1>
+
+<form action="{% url 'stafflogin' %}" method="POST">
+    {% csrf_token %}
+
+    <p>Email:</p>
+    <input type="text" name="email" required>
+
+    <p>Password:</p>
+    <input type="password" name="password" required>
+
+    <br>
+
+    <input type="submit" value="Login">
+
+</form>
+
+{% for message in messages %}
+<h3>{{ message }}</h3>
+{% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kuisine</title>
+
+    <style>
+        body {
+            background-color: antiquewhite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            row-gap: 10px;
+        }
+
+        .button-row {
+            display: flex;
+            flex-direction: row;
+            column-gap: 8px;
+        }
+
+        button {
+            padding: 8px 16px;
+            cursor: pointer;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Welcome to Kuisine</h1>
+
+    <div class="button-row">
+        <button>
+            <a href="{% url 'studentlogin' %}">Login (Student)</a>
+        </button>
+
+        <button>
+            <a href="{% url 'stafflogin' %}">Login (Staff)</a>
+        </button>
+    </div>
+
+    <button>
+        <a href="{% url 'register' %}">Register</a>
+    </button>
+
+</div>
+
+</body>
+</html>

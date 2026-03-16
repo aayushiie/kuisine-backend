@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register</title>
+
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h5 {
+            color: red;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            row-gap: 6px;
+        }
+
+        input {
+            padding: 6px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<h1>Register</h1>
+
+<form action="{% url 'register' %}" method="POST">
+    {% csrf_token %}
+
+    <p>Name:</p>
+    <input type="text" name="name" required>
+
+    <p>Email:</p>
+    <input type="email" name="email" required>
+
+    <p>Password:</p>
+    <input type="password" name="password" required>
+
+    <p>Repeat Password:</p>
+    <input type="password" name="password2" required>
+
+    <br>
+
+    <input type="radio" name="role" value="Student" required>
+    <label>Student</label>
+
+    <input type="radio" name="role" value="Staff">
+    <label>Staff</label>
+
+    <br>
+
+    <input type="submit" value="Register">
+
+</form>
+
+{% for message in messages %}
+<h5>{{ message }}</h5>
+{% endfor %}
+
+</body>
+</html>

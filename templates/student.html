@@ -1,0 +1,43 @@
+<h1>Welcome, {{name}}</h1>
+<button><a href="{% url 'logout' %}">Logout</a></button>
+
+<h3>Select food court</h3>
+<form action="" method="GET">
+    {% for foodcourt in foodcourts %}
+    <input type="radio" name="foodcourt_id" value="{{ foodcourt.id }}"> <label>{{foodcourt.name}}</label>
+    <br>
+    {% endfor %}
+
+    <button type="submit">Submit</button>
+</form>
+
+{% if items %}
+<h3>Menu</h3>
+
+<form action="{% url 'add_to_cart' pk %}" method="POST">
+    {% csrf_token %}
+
+    {% for item in items %}
+        <input type="checkbox" name="items" value="{{ item.id }}">
+        <label>{{ item.name }} - ₹{{ item.price }}</label>
+
+        <select name="quantity_{{ item.id }}">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+
+        <br>
+    {% endfor %}
+
+    <button type="submit">Add to Cart</button>
+</form>
+{% endif %}
+
+
+
+
+<button><a href="{% url 'logout' %}">Logout</button>
+
