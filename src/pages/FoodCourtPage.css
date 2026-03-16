@@ -1,0 +1,367 @@
+/* PAGE */
+
+.menu-page{
+padding:40px 8%;
+min-height:100vh;
+
+background:linear-gradient(
+180deg,
+#f9fafc 0%,
+#ffffff 40%,
+#f3f6fb 100%
+);
+font-family:"Montserrat", sans-serif;
+}
+
+
+/* HEADER */
+
+.menu-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:25px;
+}
+
+.menu-header h2{
+font-size:28px;
+font-weight:700;
+color:#1A3A6B;
+}
+
+
+/* CART BUTTON */
+
+.cart-btn{
+background:#FF6B2B;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:25px;
+font-weight:600;
+cursor:pointer;
+box-shadow:0 6px 20px rgba(255,107,43,0.35);
+transition:0.25s;
+}
+
+.cart-btn:hover{
+transform:translateY(-2px);
+background:#ff7a3c;
+}
+
+
+/* SEARCH */
+
+.menu-search{
+width:100%;
+max-width:420px;
+padding:12px 16px;
+border-radius:12px;
+border:1px solid #ddd;
+margin-bottom:25px;
+font-size:14px;
+}
+
+
+/* CATEGORY FILTER */
+
+.category-row{
+display:flex;
+gap:12px;
+margin-bottom:30px;
+flex-wrap:wrap;
+}
+
+.category{
+padding:10px 18px;
+border-radius:30px;
+border:1px solid #ddd;
+background:white;
+cursor:pointer;
+font-weight:500;
+transition:0.25s;
+}
+
+.category.active{
+background:#1A3A6B;
+color:white;
+border:none;
+}
+
+
+/* MENU GRID */
+
+.menu-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+
+/* MENU CARD */
+
+.menu-card{
+position:relative;
+background:white;
+padding:22px;
+border-radius:16px;
+border:1px solid rgba(0,0,0,0.05);
+transition:0.3s;
+box-shadow:0 6px 20px rgba(0,0,0,0.05);
+}
+
+.menu-card:hover{
+transform:translateY(-6px);
+box-shadow:0 20px 40px rgba(0,0,0,0.08);
+}
+
+
+/* POPULAR BADGE */
+
+.popular-badge{
+background:#FF6B2B;
+color:white;
+font-size:11px;
+padding:4px 10px;
+border-radius:20px;
+position:absolute;
+top:12px;
+left:12px;
+font-weight:600;
+}
+
+
+/* CARD HEADER */
+
+.menu-card-top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:6px;
+}
+
+.menu-card h3{
+font-size:18px;
+font-weight:600;
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+
+/* FOOD TYPE */
+
+.veg{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#22c55e;
+display:inline-block;
+}
+
+.nonveg{
+width:10px;
+height:10px;
+border-radius:50%;
+background:#ef4444;
+display:inline-block;
+}
+
+
+/* PRICE */
+
+.price{
+color:#FF6B2B;
+font-weight:600;
+}
+
+
+/* DESCRIPTION */
+
+.desc{
+font-size:14px;
+color:#666;
+margin-bottom:15px;
+}
+
+
+/* ADD BUTTON */
+
+.add-btn{
+width:100%;
+padding:12px;
+border-radius:12px;
+border:none;
+background:#1A3A6B;
+color:white;
+font-weight:600;
+cursor:pointer;
+transition:0.25s;
+}
+
+.add-btn:hover{
+background:#2d5bae;
+}
+
+
+/* QUANTITY BOX */
+
+.qty-box{
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:#eef2ff;
+border-radius:30px;
+padding:6px 12px;
+margin-top:10px;
+}
+
+.qty-box button{
+background:transparent;
+border:none;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+width:32px;
+height:32px;
+border-radius:50%;
+transition:0.2s;
+}
+
+.qty-box button:hover{
+background:rgba(0,0,0,0.08);
+}
+
+.qty-box span{
+font-weight:600;
+font-size:16px;
+color:#1A3A6B;
+}
+
+
+/* CART OVERLAY */
+
+.cart-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.3);
+z-index:999;
+}
+
+
+/* CART PANEL */
+
+.cart-panel{
+position:fixed;
+top:0;
+right:-400px;
+width:350px;
+height:100vh;
+background:white;
+box-shadow:-10px 0 40px rgba(0,0,0,0.1);
+padding:25px;
+transition:right 0.3s ease;
+z-index:1000;
+overflow-y:auto;
+}
+
+.cart-panel.open{
+right:0;
+background: white;
+}
+
+
+/* CART HEADER */
+
+.cart-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+}
+
+.cart-header h3{
+color:#1A3A6B;
+}
+
+
+/* CART ITEMS */
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:15px;
+}
+
+.cart-item-info h4{
+font-size:15px;
+margin:0;
+color:#1A3A6B;
+}
+
+.cart-item-info p{
+font-size:13px;
+color:#777;
+}
+
+
+/* QTY CONTROLS */
+
+.qty{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.qty button{
+width:28px;
+height:28px;
+border-radius:50%;
+border:none;
+background:#f1f5f9;
+cursor:pointer;
+font-weight:bold;
+}
+
+
+/* EMPTY CART */
+
+.empty{
+color:#888;
+text-align:center;
+margin-top:20px;
+}
+
+
+/* CART TOTAL */
+
+.cart-total{
+font-size:18px;
+font-weight:600;
+margin-top:15px;
+color:#1A3A6B;
+}
+
+
+/* CHECKOUT BUTTON */
+
+.checkout-btn{
+width:100%;
+padding:14px;
+border-radius:12px;
+border:none;
+background:#FF6B2B;
+color:white;
+font-weight:600;
+cursor:pointer;
+margin-top:15px;
+transition:0.3s;
+}
+
+.checkout-btn:hover{
+background:#ff7a3c;
+}

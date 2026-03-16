@@ -1,0 +1,62 @@
+.footer{
+background:#0e1c38;
+color:#d1d5db;
+padding:60px 40px 20px;
+}
+
+.footer-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr 1fr;
+gap:40px;
+}
+
+.footer-logo{
+color:white;
+margin-bottom:10px;
+}
+
+.footer-brand p{
+font-size:14px;
+line-height:1.6;
+}
+
+.footer-wifi{
+margin-top:15px;
+background:rgba(255,255,255,0.08);
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+display:inline-block;
+}
+
+.footer-column h4{
+color:white;
+margin-bottom:15px;
+}
+
+.footer-column{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+
+.footer-column a{
+color:#9ca3af;
+text-decoration:none;
+font-size:14px;
+}
+
+.footer-column a:hover{
+color:#17d059;
+}
+
+.footer-bottom{
+margin-top:40px;
+border-top:1px solid rgba(255,255,255,0.1);
+padding-top:15px;
+text-align:center;
+font-size:13px;
+color:#9ca3af;
+}
