@@ -1,4 +1,4 @@
-const BASE = 'http://localhost:8000/api';
+const BASE = 'https://kuisine-backend-1.onrender.com/api';
 
 const getToken = () => localStorage.getItem('kuisine_token');
 
