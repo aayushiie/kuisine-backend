@@ -1,0 +1,25 @@
+.auth-page { min-height:calc(100vh - 64px); display:flex; align-items:center; justify-content:center; padding:40px 20px; background:var(--cream); }
+.auth-card { background:white; border-radius:var(--r-lg); padding:40px; width:100%; max-width:440px; box-shadow:var(--sh-lg); border:1.5px solid var(--gray-200); }
+.auth-logo { font-family:var(--font-d); font-size:28px; font-weight:800; color:var(--navy); text-align:center; margin-bottom:20px; }
+.auth-logo span { color:var(--green); }
+.auth-title { font-family:var(--font-d); font-size:24px; font-weight:800; color:var(--navy); text-align:center; margin-bottom:6px; }
+.auth-sub { color:var(--gray-600); font-size:13px; text-align:center; margin-bottom:28px; }
+.auth-form { display:flex; flex-direction:column; gap:16px; }
+.field { display:flex; flex-direction:column; gap:6px; }
+.field label { font-size:12px; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.5px; }
+.field input { padding:12px 14px; border-radius:var(--r); border:2px solid var(--gray-200); font-family:var(--font-b); font-size:14px; color:var(--navy); outline:none; transition:border-color .2s; background:white; }
+.field input:focus { border-color:var(--navy); }
+.field input::placeholder { color:var(--gray-400); }
+.role-selector { display:flex; flex-direction:column; gap:8px; }
+.role-selector label { font-size:12px; font-weight:700; color:var(--navy); text-transform:uppercase; letter-spacing:.5px; }
+.role-btns { display:flex; gap:10px; }
+.role-btn { flex:1; padding:12px; border-radius:var(--r); border:2px solid var(--gray-200); font-size:14px; font-weight:600; color:var(--gray-600); background:white; transition:all .2s; }
+.role-btn:hover { border-color:var(--navy); color:var(--navy); }
+.role-btn.active { border-color:var(--green); background:var(--green-light); color:var(--green-h); }
+.auth-switch { text-align:center; font-size:13px; color:var(--gray-600); margin-top:20px; }
+.auth-switch a { color:var(--green); font-weight:700; }
+.demo-accounts { margin-top:20px; background:var(--gray-100); border-radius:var(--r); padding:14px; }
+.demo-accounts p { font-size:11px; font-weight:700; color:var(--gray-600); text-transform:uppercase; letter-spacing:.5px; margin-bottom:8px; }
+.demo-row { display:flex; justify-content:space-between; font-size:12px; color:var(--navy); padding:4px 0; }
+.demo-row span:first-child { font-weight:600; }
+.demo-row span:last-child { font-family:monospace; color:var(--gray-600); }

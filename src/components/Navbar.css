@@ -1,0 +1,28 @@
+.navbar { position:sticky; top:0; z-index:100; background:var(--navy); box-shadow:0 2px 16px rgba(0,0,0,.2); }
+.nav-inner { max-width:1200px; margin:0 auto; padding:0 24px; height:64px; display:flex; align-items:center; gap:24px; }
+.nav-logo { font-family:var(--font-d); font-size:22px; font-weight:800; color:white; }
+.nav-logo span { color:var(--green); }
+.nav-links { display:flex; align-items:center; gap:22px; flex:1; }
+.nav-links a { color:rgba(255,255,255,.65); font-size:14px; font-weight:500; transition:color .2s; position:relative; }
+.nav-links a:hover, .nav-links a.active { color:white; }
+.nav-links a.active::after { content:''; position:absolute; bottom:-4px; left:0; right:0; height:2px; background:var(--green); border-radius:2px; }
+.nav-right { margin-left:auto; display:flex; align-items:center; gap:10px; }
+.nav-user { display:flex; align-items:center; gap:8px; }
+.nav-name { color:rgba(255,255,255,.85); font-size:13px; font-weight:600; }
+.role-chip { font-size:10px; font-weight:800; padding:3px 9px; border-radius:var(--r-pill); text-transform:uppercase; letter-spacing:.5px; }
+.role-chip.student { background:var(--green-light); color:var(--green-h); }
+.role-chip.staff   { background:#fef3c7; color:#92400e; }
+.cart-btn { background:var(--green); color:white; border-radius:var(--r-pill); padding:8px 16px; font-size:14px; font-weight:600; display:flex; align-items:center; gap:6px; transition:background .2s; position:relative; }
+.cart-btn:hover { background:var(--green-h); }
+.cart-count { background:white; color:var(--navy); font-size:10px; font-weight:800; min-width:17px; height:17px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.logout-btn { background:rgba(255,255,255,.12); color:white; font-size:12px; font-weight:600; padding:7px 14px; border-radius:var(--r-pill); transition:background .2s; }
+.logout-btn:hover { background:rgba(255,255,255,.22); }
+.nav-link-btn { color:rgba(255,255,255,.75); font-size:13px; font-weight:600; transition:color .2s; }
+.nav-link-btn:hover { color:white; }
+.hamburger { display:none; background:transparent; color:white; font-size:20px; padding:4px; }
+@media(max-width:700px) {
+  .nav-links { display:none; position:absolute; top:64px; left:0; right:0; background:var(--navy); flex-direction:column; padding:16px 24px 24px; gap:18px; align-items:flex-start; border-top:1px solid rgba(255,255,255,.1); }
+  .nav-links.open { display:flex; }
+  .hamburger { display:block; }
+  .nav-name { display:none; }
+}

@@ -1,0 +1,42 @@
+.home { min-height:100vh; }
+.hero { position:relative; min-height:500px; background:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400&q=80') center/cover no-repeat; display:flex; align-items:center; }
+.hero-overlay { position:absolute; inset:0; background:linear-gradient(135deg,rgba(15,22,50,.90),rgba(10,18,40,.72)); }
+.hero-content { position:relative; z-index:1; padding:80px 0; animation:fadeUp .7s ease; }
+.hero-eyebrow { color:var(--green); font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; display:block; margin-bottom:12px; }
+.hero-h1 { font-family:var(--font-d); font-size:clamp(32px,6vw,64px); font-weight:800; color:white; line-height:1.1; margin-bottom:16px; }
+.accent { color:var(--green); }
+.hero-p { color:rgba(255,255,255,.72); font-size:15px; line-height:1.7; max-width:460px; margin-bottom:28px; }
+.hero-btns { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:20px; }
+.btn-outline { background:transparent; color:white; font-family:var(--font-b); font-size:14px; font-weight:600; padding:12px 24px; border-radius:var(--r-pill); border:2px solid rgba(255,255,255,.5); transition:border-color .2s; cursor:pointer; }
+.btn-outline:hover { border-color:white; }
+.hero-welcome { background:rgba(255,255,255,.12); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.2); color:white; font-size:14px; padding:10px 16px; border-radius:var(--r-pill); display:inline-block; }
+.hero-welcome strong { color:var(--green); }
+/* Section title */
+.section-title { font-family:var(--font-d); font-size:clamp(22px,4vw,30px); font-weight:800; color:var(--navy); text-align:center; margin-bottom:36px; }
+/* How */
+.how { background:white; padding:64px 0; }
+.steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+.step-card { background:var(--gray-100); border-radius:var(--r-lg); padding:26px 20px; text-align:center; position:relative; transition:box-shadow .2s,transform .2s; }
+.step-card:hover { box-shadow:var(--sh-md); transform:translateY(-3px); }
+.step-num { position:absolute; top:-10px; left:50%; transform:translateX(-50%); background:var(--green); color:white; font-size:11px; font-weight:800; width:22px; height:22px; border-radius:50%; display:flex; align-items:center; justify-content:center; }
+.step-icon { font-size:36px; margin:8px 0 12px; }
+.step-card h3 { font-family:var(--font-d); font-size:14px; font-weight:700; color:var(--navy); margin-bottom:5px; }
+.step-card p { font-size:12px; color:var(--gray-600); line-height:1.6; }
+/* Courts preview */
+.courts-preview { padding:64px 0; background:var(--cream); }
+.courts-mini-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:12px; }
+.court-mini-card { background:white; border-radius:var(--r-lg); padding:18px 16px; border:1.5px solid var(--gray-200); cursor:pointer; transition:box-shadow .2s,border-color .2s,transform .2s; display:flex; flex-direction:column; gap:4px; }
+.court-mini-card:hover { box-shadow:var(--sh-md); border-color:var(--green); transform:translateY(-2px); }
+.court-mini-icon { font-size:24px; }
+.court-mini-name { font-family:var(--font-d); font-size:13px; font-weight:700; color:var(--navy); }
+.court-mini-time { font-size:11px; color:var(--gray-400); }
+/* Features */
+.features { padding:64px 0; background:white; }
+.feat-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; }
+.feat-card { background:var(--gray-100); border-radius:var(--r-lg); padding:24px 20px; border:1.5px solid var(--gray-200); opacity:0; transition:box-shadow .2s,transform .2s; }
+.feat-card:hover { box-shadow:var(--sh-md); transform:translateY(-2px); }
+.feat-icon { font-size:28px; margin-bottom:10px; }
+.feat-card h3 { font-family:var(--font-d); font-size:14px; font-weight:700; color:var(--navy); margin-bottom:5px; }
+.feat-card p { font-size:12px; color:var(--gray-600); line-height:1.6; }
+/* Footer */
+.footer { background:var(--navy); color:rgba(255,255,255,.45); padding:22px; text-align:center; font-size:12px; line-height:1.9; }
