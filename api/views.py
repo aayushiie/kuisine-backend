@@ -12,7 +12,7 @@ from .serializers import (
 )
 
 
-# ── AUTH ──────────────────────────────────────────────────────────────────────
+# ── AUTH ────────
 class RegisterView(APIView):
     permission_classes = [AllowAny]
 
@@ -58,7 +58,7 @@ class MeView(APIView):
         return Response(UserSerializer(request.user).data)
 
 
-# ── FOOD COURTS ───────────────────────────────────────────────────────────────
+# ── FOOD COURTS ───────
 class FoodCourtListView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -87,7 +87,7 @@ class FoodCourtDetailView(APIView):
         return Response(s.errors, status=400)
 
 
-# ── MENU ──────────────────────────────────────────────────────────────────────
+# ── MENU ─────
 class MenuListView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -100,7 +100,7 @@ class MenuListView(APIView):
         return Response(MenuItemSerializer(qs, many=True).data)
 
 
-# ── ORDERS ────────────────────────────────────────────────────────────────────
+# ── ORDERS ──────
 class OrderListView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -156,7 +156,7 @@ class OrderStatusUpdateView(APIView):
         return Response(s.errors, status=400)
 
 
-# ── STATS (staff) ──────────────────────────────────────────────────────────────
+# ── STATS (staff) ───────
 class StatsView(APIView):
     permission_classes = [IsAuthenticated]
 
